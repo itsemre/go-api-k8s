@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.api.name }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: {{ .Values.api.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.api.name }}
+    spec:
+      containers:
+        - name: {{ .Values.api.name }}
+          image: {{ .Values.api.image }}
+          imagePullPolicy: Never
+          args: ["serve"]
+          ports:
+            - name: web
+              containerPort: {{ .Values.api.containerPort }}
+          # readinessProbe:
+          #   httpGet:
+          #     path: /ping
+          #     port: {{ .Values.api.containerPort }}
+          #   initialDelaySeconds: 15
+          #   periodSeconds: 10
+          #   timeoutSeconds: 5
+          #   failureThreshold: 3

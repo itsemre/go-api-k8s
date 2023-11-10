@@ -1,0 +1,12 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ .Values.api.name }}
+  labels:
+    monitor: "true"
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.api.name }}
+  endpoints:
+  - port: web

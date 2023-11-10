@@ -1,0 +1,4 @@
+api:
+  name: api
+  image: api:latest
+  containerPort: 8080
