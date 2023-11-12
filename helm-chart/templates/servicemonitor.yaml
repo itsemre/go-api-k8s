@@ -2,8 +2,6 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: {{ .Values.api.name }}
-  labels:
-    release: kps
 spec:
   selector:
     matchLabels:

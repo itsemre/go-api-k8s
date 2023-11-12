@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/itsemre/go-api-k8s/cmd"
+	"github.com/itsemre/go-api-k8s/pkg/cmd"
 )
 
 // The entrypoint to the API

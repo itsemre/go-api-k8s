@@ -44,6 +44,7 @@ var rootCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
+
 		return nil
 	},
 	// Run child command

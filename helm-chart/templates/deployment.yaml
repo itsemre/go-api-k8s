@@ -20,6 +20,9 @@ spec:
           ports:
             - name: web
               containerPort: {{ .Values.api.port }}
+          env:
+          - name: API_SERVER_ADDRESS
+            value: "0.0.0.0"
           resources:
             limits:
               cpu: {{ .Values.api.resources.cpu.limits }}

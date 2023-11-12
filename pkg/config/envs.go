@@ -28,7 +28,7 @@ func GetViper(configFileName, envPrefix, envType string, allowEmpty, autoEnv, qu
 	if autoEnv {
 		v.AutomaticEnv()
 	}
-	v.SetEnvKeyReplacer((strings.NewReplacer("_", ".")))
+	v.SetEnvKeyReplacer((strings.NewReplacer("-", "_")))
 
 	if err = v.ReadInConfig(); err != nil {
 		if _, ok := err.(viper.ConfigFileNotFoundError); !ok {
