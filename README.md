@@ -50,21 +50,23 @@ You will need the following dependencies installed:
 
 To install and run the project, follow these steps:
 
-**1. Clone the project repository from GitHub**
+**1. Deploy the Project**
 
-```bash
-git clone https://github.com/itsemre/go-api-k8s
-```
+- Clone the project repository from GitHub:
 
-**2. Ensure that the Docker daemon is running, and run the following make command**
+    ```bash
+    git clone https://github.com/itsemre/go-api-k8s
+    ```
 
-```bash
-make deploy
-```
+- Ensure that the Docker daemon is running, and run the following make command:
+
+    ```bash
+    make deploy
+    ```
 
 This will create a minikube cluster and deploy the kube-prometheus-stack along with the API.
 
-**4. After the deployment is done, test the API**
+**2. Test the API**
 
 - Ensure that the API pod is ready, meaning that it responds to Kubernetes health checks. Run:
 
@@ -90,7 +92,7 @@ This will create a minikube cluster and deploy the kube-prometheus-stack along w
 
     <img src="screenshots/curl.jpg" alt="Curl Command">
 
-**5. Ensure that kube and custom metrics are being scraped**
+**3. Check Prometheus**
 
 - Port-forward the Prometheus service:
 
@@ -104,7 +106,7 @@ This will create a minikube cluster and deploy the kube-prometheus-stack along w
         
     <img src="screenshots/serviceMonitor.png" alt="Service Monitor Screenshot">
 
-**6. Finally, check Grafana**
+**4. Check Grafana**
 
 - Port-forward the Grafana service:
 
@@ -149,7 +151,30 @@ You can provide the configuration parameters as command-line flags when starting
 Run the following for more details:
 
 ```bash
-./api serve --help
+./api --help     
+Usage:
+  api [flags]
+  api [command]
+
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  serve       Begins the API
+
+Flags:
+      --cors-allow-credentials        Whether to allow credentials to CORS
+      --cors-allow-headers strings    List of CORS headers that are allowed (default [Origin,content-type])
+      --cors-allow-methods strings    List of CORS methods that are allowed (default [GET,POST,PUT,DELETE])
+      --cors-allow-origins strings    Allow origins for CORS configuration (default [*])
+      --cors-expose-headers strings   List of CORS headers that are exposed (default [Content-Length])
+      --cors-max-age int              Maximum age (in hours) pertaining to CORS configuration (default 1)
+  -h, --help                          help for api
+      --log-level string              Logging level, can only be one of 'panic', 'fatal', 'error', 'warn', 'info', 'debug', 'trace'. (default "info")
+      --server-address string         The address that the web server will be listening to (default "0.0.0.0")
+      --server-port string            The port that the web server will be listening to (default "8080")
+      --shutdown-timeout int          The timeout (in seconds) for the server to shut down (default 10)
+
+Use "api [command] --help" for more information about a command.
 ```
 
 **2. Environment Variables** 
