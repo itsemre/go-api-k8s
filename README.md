@@ -141,7 +141,8 @@ The following table outlines the available configuration parameters that are inc
 
 To set these configuration parameters, you can choose one of the following methods:
 
-**1. Command-line Flags** 
+**1. Command-line Flags**
+
 You can provide the configuration parameters as command-line flags when starting the service. For example:
 
 ```bash
@@ -177,7 +178,8 @@ Flags:
 Use "api [command] --help" for more information about a command.
 ```
 
-**2. Environment Variables** 
+**2. Environment Variables**
+
 Alternatively, you can set the configuration parameters as environment variables. The environment variable names should be prefixed with "API". For example:
 
 ```bash
@@ -185,7 +187,8 @@ export API_SERVER_PORT=8080
 export API_LOG_LEVEL=info
 ```
 
-**3. Configuration File** 
+**3. Configuration File**
+
 You can also specify the configuration parameters in a configuration file named `api` located in the `~/.api` directory. The file should follow the "env" format. Example content:
 
 ```bash
