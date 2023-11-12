@@ -1,4 +1,19 @@
 api:
   name: api
   image: api:latest
-  containerPort: 8080
+  port: 8080
+  resources:
+    cpu:
+      limits: 500m
+      requests: 200m
+  readiness:
+    initialDelay: 15
+  hpa:
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPU: 60
+
+prometheus:
+  prometheusSpec:
+    podMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Values.api.name }}
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: {{ .Values.api.name }}
@@ -19,12 +19,16 @@ spec:
           args: ["serve"]
           ports:
             - name: web
-              containerPort: {{ .Values.api.containerPort }}
-          # readinessProbe:
-          #   httpGet:
-          #     path: /ping
-          #     port: {{ .Values.api.containerPort }}
-          #   initialDelaySeconds: 15
-          #   periodSeconds: 10
-          #   timeoutSeconds: 5
-          #   failureThreshold: 3
+              containerPort: {{ .Values.api.port }}
+          resources:
+            limits:
+              cpu: {{ .Values.api.resources.cpu.limits }}
+            requests:
+              cpu: {{ .Values.api.resources.cpu.requests }}
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: {{ .Values.api.port }}
+            initialDelaySeconds: {{ .Values.api.readiness.initialDelay }}
+            periodSeconds: 10
+            failureThreshold: 3
