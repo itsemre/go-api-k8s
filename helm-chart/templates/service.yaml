@@ -9,4 +9,4 @@ spec:
     app: {{ .Values.api.name }}
   ports:
     - name: web
-      port: {{ .Values.api.containerPort }}
+      port: {{ .Values.api.port }}

@@ -3,7 +3,7 @@ kind: ServiceMonitor
 metadata:
   name: {{ .Values.api.name }}
   labels:
-    monitor: "true"
+    release: kps
 spec:
   selector:
     matchLabels:
