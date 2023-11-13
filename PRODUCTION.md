@@ -8,7 +8,7 @@ It is important to note that this project is just a demonstration has a lot of r
 - Set up CD using a tool such as Flux.
 - The addition of go-routines to the backend in order to handle and process more traffic in parallel.
 - Cluster should have autoscaling.
-- An ingress service for the pods should be created in order to handle load balancing and exposing the API publically.
+- The type of the k8s service for the API should be changed from ClusterIP to LoadBalancer, or an Ingress should be used. This can also serve the purpose of exposing the API publically.
 - The kube-prometheus-stack that is being used is no-where near fully utilised. A lot more of its capabilities should be implemented, such as the alert manager.
 - Another monitoring tool for collecting logs should be set up.
 - Minikube comes with RBAC disabled out of the box. It should be enabled, and service accounts, cluster roles and role bindings for the resources should be created.
